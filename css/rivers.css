@@ -35,3 +35,8 @@ h1, h2, h3, h4, .font-title {
 .legal strong { color: #1a1a1a; }
 .legal li p { margin: 0; }
 @media (min-width: 768px) { .legal-title { font-size: 3rem; } }
+
+/* Formularios */
+.campo { display: block; margin-bottom: 0.375rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #1a1a1a; }
+.input { width: 100%; border: 1px solid #d6d3d1; border-radius: 2px; padding: 0.625rem 0.75rem; background: #fff; color: #333; font: inherit; }
+.input:focus { outline: none; border-color: #d9684c; }

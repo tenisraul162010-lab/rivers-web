@@ -61,7 +61,7 @@
 </div>
 </div>
 <a class="text-brand-terracotta" href="contacto.html">CONTACTO</a>
-<a class="px-5 py-2.5 bg-brand-terracotta text-white hover:bg-brand-terracottaHover transition-colors" href="contacto.html#presupuesto">PIDE PRESUPUESTO</a>
+<a class="px-5 py-2.5 bg-brand-terracotta text-white hover:bg-brand-terracottaHover transition-colors" href="presupuesto.html">PIDE PRESUPUESTO</a>
 </div>
 <!-- Menú móvil -->
 <details class="mobile-menu md:hidden relative">
@@ -77,7 +77,7 @@
 <a class="block px-8 py-2.5 hover:text-brand-terracotta" href="reformas-de-bano.html">REFORMAS DE BAÑOS</a>
 <a class="block px-8 py-2.5 hover:text-brand-terracotta" href="reformas-de-cocina.html">REFORMAS DE COCINAS</a>
 <a class="block px-5 py-3 hover:text-brand-terracotta" href="contacto.html">CONTACTO</a>
-<a class="block mx-5 mt-2 px-4 py-3 text-center bg-brand-terracotta text-white" href="contacto.html#presupuesto">PIDE PRESUPUESTO</a>
+<a class="block mx-5 mt-2 px-4 py-3 text-center bg-brand-terracotta text-white" href="presupuesto.html">PIDE PRESUPUESTO</a>
 </div>
 </details>
 </nav>
@@ -93,33 +93,7 @@
 </div>
 </section>
 
-<section class="py-20 px-6 bg-brand-softPink" id="presupuesto">
-<div class="max-w-3xl mx-auto">
-<h2 class="text-center text-xl md:text-2xl font-medium text-brand-dark uppercase" style="letter-spacing:0.02em">SOLICITA PRESUPUESTO</h2>
-<form id="form-presupuesto" class="mt-10 bg-white p-6 md:p-10 rounded-sm shadow-sm space-y-5 text-sm text-brand-body" novalidate>
-<p class="text-xs text-gray-500">Los campos marcados con * son obligatorios.</p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-<label class="block"><span class="block mb-1.5 text-xs font-semibold tracking-wider uppercase text-brand-dark">Nombre *</span>
-<input name="nombre" required autocomplete="name" class="w-full border border-stone-300 rounded-sm px-3 py-2.5 focus:outline-none focus:border-brand-terracotta"></label>
-<label class="block"><span class="block mb-1.5 text-xs font-semibold tracking-wider uppercase text-brand-dark">Email *</span>
-<input name="email" type="email" required autocomplete="email" class="w-full border border-stone-300 rounded-sm px-3 py-2.5 focus:outline-none focus:border-brand-terracotta"></label>
-</div>
-<label class="block"><span class="block mb-1.5 text-xs font-semibold tracking-wider uppercase text-brand-dark">Teléfono</span>
-<input name="telefono" type="tel" autocomplete="tel" class="w-full border border-stone-300 rounded-sm px-3 py-2.5 focus:outline-none focus:border-brand-terracotta"></label>
-<label class="block"><span class="block mb-1.5 text-xs font-semibold tracking-wider uppercase text-brand-dark">Mensaje *</span>
-<textarea name="mensaje" rows="5" required class="w-full border border-stone-300 rounded-sm px-3 py-2.5 focus:outline-none focus:border-brand-terracotta" placeholder="Cuéntanos tu proyecto"></textarea></label>
-<label class="flex gap-3 items-start text-xs"><input type="checkbox" name="comercial" class="mt-0.5 accent-[#d9684c]"><span>Autorizo a contactarme por email o por cualquier medio con fines comerciales.</span></label>
-<label class="flex gap-3 items-start text-xs"><input type="checkbox" name="privacidad" required class="mt-0.5 accent-[#d9684c]"><span>He leído y aceptado la <a href="politica-de-privacidad.html" class="text-brand-terracotta underline">Política de Privacidad</a> *</span></label>
-<p id="form-error" class="hidden text-xs text-red-600"></p>
-<div class="flex flex-col sm:flex-row gap-3 pt-2">
-<button type="submit" data-via="email" class="btn-solid">ENVIAR POR EMAIL</button>
-<button type="submit" data-via="whatsapp" class="btn-outline">ENVIAR POR WHATSAPP</button>
-</div>
-</form>
-</div>
-</section>
-
-<section class="py-20 px-6 bg-white">
+<section class="py-20 px-6 bg-white border-t border-stone-100">
 <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 <img src="img/foto8.jpg" alt="Salón reformado con terraza y carpintería a medida" class="w-full rounded-sm shadow-sm object-cover aspect-[4/3]">
 <div class="prose-rivers">
@@ -132,45 +106,41 @@
 </div>
 </section>
 
-<script>
-  (function () {
-    var form = document.getElementById('form-presupuesto');
-    var error = document.getElementById('form-error');
-    var via = 'email';
-    form.querySelectorAll('button[type=submit]').forEach(function (b) {
-      b.addEventListener('click', function () { via = b.getAttribute('data-via'); });
-    });
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var f = form.elements;
-      var faltan = [];
-      if (!f.nombre.value.trim()) faltan.push('nombre');
-      if (!f.email.value.trim() || !f.email.checkValidity()) faltan.push('un email válido');
-      if (!f.mensaje.value.trim()) faltan.push('mensaje');
-      if (!f.privacidad.checked) faltan.push('aceptar la Política de Privacidad');
-      if (faltan.length) {
-        error.textContent = 'Falta: ' + faltan.join(', ') + '.';
-        error.classList.remove('hidden');
-        return;
-      }
-      error.classList.add('hidden');
-      var texto = 'Solicitud de presupuesto desde la web\n\n' +
-        'Nombre: ' + f.nombre.value.trim() + '\n' +
-        'Email: ' + f.email.value.trim() + '\n' +
-        'Teléfono: ' + (f.telefono.value.trim() || '-') + '\n\n' +
-        f.mensaje.value.trim() + '\n\n' +
-        'Acepta comunicaciones comerciales: ' + (f.comercial.checked ? 'Sí' : 'No');
-      if (via === 'whatsapp') {
-        window.open('https://wa.me/34614239410?text=' + encodeURIComponent(texto), '_blank', 'noopener');
-      } else {
-        window.location.href = 'mailto:reformasrivers@gmail.com?subject=' +
-          encodeURIComponent('Solicitud de presupuesto - ' + f.nombre.value.trim()) +
-          '&body=' + encodeURIComponent(texto);
-      }
-      setTimeout(function () { window.location.href = 'gracias.html'; }, 1200);
-    });
-  })();
-</script>
+<section class="py-12 px-6 bg-brand-terracotta text-white">
+<div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-between text-center md:text-left">
+<div>
+<h2 class="text-lg md:text-xl font-semibold uppercase" style="letter-spacing:0.06em">¿QUIERES UN PRESUPUESTO PARA TU OBRA?</h2>
+<p class="mt-2 text-sm text-white/90">Rellena el formulario de presupuesto con los detalles de tu reforma y te enviaremos una propuesta adaptada.</p>
+</div>
+<a class="shrink-0 inline-block px-8 py-3 text-[11px] font-semibold tracking-widest uppercase bg-white text-brand-terracotta hover:bg-stone-100 transition-colors" href="presupuesto.html">PIDE PRESUPUESTO</a>
+</div>
+</section>
+
+<section class="py-20 px-6 bg-brand-softPink">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-center text-xl md:text-2xl font-medium text-brand-dark uppercase" style="letter-spacing:0.02em">ESCRÍBENOS</h2>
+<p class="text-center text-sm text-brand-body mt-3">Para dudas o consultas generales.</p>
+<form data-formulario="Consulta desde la web" class="mt-10 bg-white p-6 md:p-10 rounded-sm shadow-sm space-y-5 text-sm text-brand-body" novalidate>
+<p class="text-xs text-gray-500">Los campos marcados con * son obligatorios.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<label class="block"><span class="campo">Nombre *</span>
+<input id="con-nombre" name="nombre" required autocomplete="name" data-nombre="Nombre" class="input"></label>
+<label class="block"><span class="campo">Teléfono o email *</span>
+<input id="con-contacto" name="contacto" required data-nombre="Teléfono o email" class="input"></label>
+</div>
+<label class="block"><span class="campo">Mensaje *</span>
+<textarea id="con-mensaje" name="mensaje" rows="5" required data-nombre="Mensaje" class="input"></textarea></label>
+<label class="flex gap-3 items-start text-xs"><input id="con-privacidad" type="checkbox" name="privacidad" required data-nombre="aceptar la Política de Privacidad" class="mt-0.5 accent-[#d9684c]"><span>He leído y aceptado la <a href="politica-de-privacidad.html" class="text-brand-terracotta underline">Política de Privacidad</a> *</span></label>
+<p class="form-error hidden text-xs text-red-600"></p>
+<div class="flex flex-col sm:flex-row gap-3 pt-2">
+<button type="submit" data-via="whatsapp" class="btn-solid">ENVIAR POR WHATSAPP</button>
+<button type="submit" data-via="email" class="btn-outline">ENVIAR POR EMAIL</button>
+</div>
+</form>
+</div>
+</section>
+
+<script src="js/formulario.js"></script>
 <!-- BEGIN: Footer Section -->
 <footer class="bg-white border-t border-stone-200" data-purpose="page-footer" id="contacto">
 <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-10 items-center text-center">
