@@ -28,3 +28,10 @@ h1, h2, h3, h4, .font-title {
 /* Menú móvil */
 .mobile-menu summary { list-style: none; cursor: pointer; }
 .mobile-menu summary::-webkit-details-marker { display: none; }
+
+/* Páginas legales */
+.legal-title { font-size: 2rem; font-weight: 500; color: #111; letter-spacing: 0.01em; margin-bottom: 1.75rem; }
+.legal-sub { font-size: 0.875rem; font-weight: 700; color: #1a1a1a; letter-spacing: 0.08em; margin-top: 2rem; margin-bottom: 0.25rem; }
+.legal strong { color: #1a1a1a; }
+.legal li p { margin: 0; }
+@media (min-width: 768px) { .legal-title { font-size: 3rem; } }
