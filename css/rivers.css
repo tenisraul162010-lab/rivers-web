@@ -9,7 +9,6 @@ h1, h2, h3, h4, .font-title {
   letter-spacing: 0.12em;
 }
 .crop-logo { background-image: url('../img/foto1.png'); background-size: contain; background-repeat: no-repeat; background-position: center; }
-.crop-institutional { background-image: url('../img/foto2.webp'); background-size: contain; background-repeat: no-repeat; background-position: center; }
 
 /* Textos de las páginas interiores */
 .prose-rivers p { font-size: 0.875rem; line-height: 1.9; letter-spacing: 0.04em; color: #4a4a4a; }
